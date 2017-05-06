@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:08:21 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 18:54:30 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:08:05 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bplus.h"
 
-static int	input_error(void *r, void *n, int f)
+static int	input_error(void *r, void *n)
 {
 	if (!r || !n)
 		return (ft_error("NULL passed to make_space()"));
@@ -20,7 +20,7 @@ static int	input_error(void *r, void *n, int f)
 }
 
 // returns if a split was necessary
-t_tree		*make_space(t_tree **root, t_tree *node, void *ptr, int force)
+t_tree		*make_space(t_tree **root, t_tree *node, int force)
 {
 	t_tree	*right;
 
@@ -29,7 +29,7 @@ t_tree		*make_space(t_tree **root, t_tree *node, void *ptr, int force)
 	if (!node->parent)
 	{
 		*root = split_root(root);
-		return (root->ptrs[1]);
+		return ((*root)->ptrs[1]);
 	}
 	if (!force)
 	{

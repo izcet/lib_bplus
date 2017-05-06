@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 21:06:30 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:38:13 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:09:03 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_leaf		*remove(t_tree **root, void *key, int (*f)(void *, void *))
 	node = *root;
 	while (node && !(node->is_leaf))
 	{
-		i = get_first_of_key(node, key, compare);
+		i = get_first_of_key(node, key, f);
 		if (i < 0)
 		{
 			ft_error("Invalid next index in remove()");
@@ -39,7 +39,7 @@ t_leaf		*remove(t_tree **root, void *key, int (*f)(void *, void *))
 		}
 		node = node->ptrs[i];
 	}
-	leaf = rm_leaf(node, get_first_of_key(node, key, compare));
+	leaf = rm_leaf(node, get_first_of_key(node, key, f));
 	*root = condense(root, node);
 	return (leaf);
 }

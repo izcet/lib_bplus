@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 17:51:29 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:10:07 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 19:46:39 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bplus.h"
 
-static int		input_error(void **r, void *n)
+static int		input_error(t_tree **r, void *n)
 {
 	if (!r || !(*r) || !n)
 		return (ft_error("NULL passed to condense()"));
@@ -31,13 +31,13 @@ static t_tree	*condense_child(t_tree **root, t_tree *node)
 	{
 		other = (get_right(node))->parent;
 		merge_left(node, get_right(node));
-		condense(other);
+		condense(root, other);
 	}
 	else if (get_left(node))
 	{
 		other = (get_left(node))->parent;
 		merge_right(get_left(node), node);
-		condense(other);
+		condense(root, other);
 	}
 	else
 		ft_error("Node with no neighbors has a parent?");

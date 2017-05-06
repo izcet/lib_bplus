@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 19:13:26 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:25:25 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 19:48:22 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bplus.h"
 
-static int	input_error(void **n, void *f)
+static int	input_error(t_tree **n, void *f)
 {
 	if (!n || !(*n) || !f)
 		return (ft_error("NULL passed to for_each_tree_node()"));
@@ -29,6 +29,6 @@ void	for_each_tree_node(t_tree **node, void *(*function)(void *))
 		*node = function(*node);
 		if (!(*node)->is_leaf)
 			while (i < (*node)->num_ptrs)
-				tree_for_each((*node)->ptrs[i++], function);
+				for_each_tree_node((*node)->ptrs[i++], function);
 	}
 }

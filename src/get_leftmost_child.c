@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 01:25:33 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 01:29:12 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 19:54:23 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	input_error(t_tree *n, int level)
 
 t_tree		*get_leftmost_child(t_tree *node, int level)
 {
-	if (!input_level)
+	if (!input_error(node, level))
 	{
 		while (level > 0)
 		{

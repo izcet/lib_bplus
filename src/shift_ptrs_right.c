@@ -6,9 +6,11 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 23:00:07 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/04 23:10:24 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:11:44 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "bplus.h"
 
 static int	input_error(t_tree *node, int index)
 {

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 22:23:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 17:27:53 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:12:09 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		update_keys(t_tree *node)
 			i++;
 		}
 		while (i < NODE_CAPACITY - 1)
-			node->keys[(i++) - 1] = NULL:
+			node->keys[(i++) - 1] = NULL;
 		if (node->parent)
 			update_keys(node->parent);
 	}

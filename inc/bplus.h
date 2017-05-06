@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 23:39:51 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:25:43 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 19:58:05 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void				del_node(t_tree *node);
 ** For Entry Handling
 */
 
-t_tree				*add_leaf(t_tree *root, void *l, int (*f)(void *, void *));
+t_tree				*add_leaf(t_tree *root, t_leaf *leaf, 
+					int (*f)(void *, void *));
 
 // revise to be get_leaves and return t_list not t_leaf
 t_leaf				*get_leaf(t_tree *root, void *k, int (*f)(void *, void *));
@@ -81,11 +82,11 @@ int					is_full(t_tree *node);
 int					can_pull_from_right(t_tree *node);
 int					can_pull_from_left(t_tree *node);
 
-t_tree				*insert_ptr_in_node(t_tree *root, t_tree *node, void *ptr,
+t_tree				*ins_ptr_in_node(t_tree *root, t_tree *node, void *ptr,
 					int (*f)(void *, void *));
 t_leaf				*rm_leaf(t_tree *node, int index);
-t_tree				*make_space(t_tree *root, t_tree *node, int force);
-t_tree				*condense(t_tree *root, t_tree *nodes);
+t_tree				*make_space(t_tree **root, t_tree *node, int force);
+t_tree				*condense(t_tree **root, t_tree *nodes);
 
 // HARD functions
 // perform no key updates, just do the intended purpose
