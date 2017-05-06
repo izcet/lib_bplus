@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 01:52:02 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 17:26:18 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:07:49 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	input_error(void *n, void *k, void *f)
 int			get_first_of_key(t_tree *node, void *key, int (*f)(void *, void *))
 {
 	int		i;
-
 	if (input_error(node, key, f))
 		return (-1);
 	i = 0;

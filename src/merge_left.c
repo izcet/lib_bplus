@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 23:51:44 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:00:30 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:10:33 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ static int	input_error(t_tree *l, t_tree *r)
 t_tree		*merge_left(t_tree *left, t_tree *right)
 {
 	int		i;
-
 	if (!input_error(left, right))
 	{
 		i = right->num_ptrs;
 		while (i-- > 0)
+		{
+			printf("CALLING PASS LEFT FROM INSIDE MERGE LEFT\n");
 			pass_ptr_left(left, right);
+		}
 		del_ptr_at(right->parent, get_index(right));
 		update_keys(right->parent);
 		del_node(right);

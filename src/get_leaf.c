@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 21:06:30 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:53:26 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:08:08 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_leaf		*get_leaf(t_tree *root, void *key, int (*f)(void *, void *))
 {
 	t_tree	*node;
 	int		i;
-
 	if (input_error(root, key, f))
 		return (NULL);
 	node = root;

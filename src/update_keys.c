@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 22:23:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:12:09 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:11:31 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	input_error(t_tree *node)
 void		update_keys(t_tree *node)
 {
 	int		i;
-
 	if (!input_error(node))
 	{
 		i = 1;

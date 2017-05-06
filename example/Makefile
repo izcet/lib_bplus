@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/23 23:07:18 by irhett            #+#    #+#              #
-#    Updated: 2017/05/05 20:19:58 by irhett           ###   ########.fr        #
+#    Updated: 2017/05/05 20:50:06 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME): $(SRCS) | $(OBJS)
 	$(CC) $(FLAGS) $(LIBFT) $(LIBTREE) $(OBJS) $(INC_DIR) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) -c $^ $(CFLAGS) $(INC_DIR) -o $@
+	$(CC) -c $^ $(FLAGS) $(INC_DIR) -o $@
 
 clean:
 	@cd $(LIBFT_DIR) && make clean

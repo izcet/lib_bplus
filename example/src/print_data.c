@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:24:22 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:29:05 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 22:51:25 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		print_datas(t_tree *node)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	printf("Node has the datas:\n");
@@ -29,7 +29,7 @@ static void		print_datas(t_tree *node)
 
 static void		print_keys(t_tree *node)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	printf("Node has the keys:\n");
@@ -42,7 +42,7 @@ static void		print_keys(t_tree *node)
 	ft_putchar('\n');
 }
 
-void			*print_data(void *node)
+void			*print_data(t_tree *node)
 {
 	ft_putendl("");
 	if (!node)
@@ -50,11 +50,12 @@ void			*print_data(void *node)
 	else
 	{
 		printf("Starting print_data()\n");
-		if (((t_tree*)node)->parent)
+		printf("Node has %i datas.\n", node->num_ptrs);
+		if (node->parent != NULL)
 			printf("Node has a parent\n");
 		else
 			printf("Node has no parent, root?\n");
-		if (((t_tree*)node)->is_leaf)
+		if (node->is_leaf)
 		{
 			printf("Node is a leaf\n");
 			print_keys(node);

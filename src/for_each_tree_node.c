@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 19:13:26 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:48:22 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/06 13:29:00 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ void	for_each_tree_node(t_tree **node, void *(*function)(void *))
 	if (!input_error(node, function))
 	{
 		i = 0;
-		*node = function(*node);
+		function(*node);
 		if (!(*node)->is_leaf)
+		{
 			while (i < (*node)->num_ptrs)
-				for_each_tree_node((*node)->ptrs[i++], function);
+			{
+				printf("calling function on child %i\n", i);
+				for_each_tree_node((t_tree **)&((*node)->ptrs[i++]), function);
+			}
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 21:03:51 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/04 22:40:52 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:10:45 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_leaf	*new_leaf(void *data, void *key)
 {
 	t_leaf	*leaf;
-
 	leaf = (t_leaf *)malloc(sizeof(t_leaf));
 	if (!leaf)
 		return (NULL);

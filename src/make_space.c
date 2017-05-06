@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 18:08:21 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:08:05 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:44:19 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	input_error(void *r, void *n)
 }
 
 // returns if a split was necessary
-t_tree		*make_space(t_tree **root, t_tree *node, int force)
+t_tree		*make_space(t_tree **root, t_tree *node, int force,
+		int (*f)(void *, void *))
 {
 	t_tree	*right;
-
 	if (input_error(root, node))
 		return (NULL);
 	if (!node->parent)
@@ -35,14 +35,18 @@ t_tree		*make_space(t_tree **root, t_tree *node, int force)
 	{
 		if (get_right(node) && !is_full(get_right(node)))
 		{
+			printf("CALLING PASS PTR RIGHT\n");
 			pass_ptr_right(node, get_right(node));
 			return (NULL);
 		}
 		if (get_left(node) && !is_full(get_left(node)))
 		{
+			printf("CALLING PASS PTR LEFT FROM INSIDE MAKE SPACE.C\n");
 			pass_ptr_left(get_left(node), node);
 			return (NULL);
 		}
 	}
-	return (split_right(node));
+	right = split_right(node);
+	ins_ptr_in_node(*root, node->parent, right, f);
+	return (right);
 }

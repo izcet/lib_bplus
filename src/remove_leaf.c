@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 21:06:30 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:25:09 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:11:06 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_leaf		*remove_leaf(t_tree **root, void *key, int (*f)(void *, void *))
 	t_tree	*node;
 	t_leaf	*leaf;
 	int		i;
-
 	if (input_error(root, key, f))
 		return (NULL);
 	node = *root;

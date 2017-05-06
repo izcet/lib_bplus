@@ -6,14 +6,17 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 23:39:51 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:21:17 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:45:53 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// PROBLEM IS IN MAKE-SPACE PASSING POINTERS TO PARENT
+// OR NOT
 #ifndef BPLUS_H
 # define BPLUS_H
 
 # include "libft.h"
+# include <stdio.h> //
 
 # define NODE_CAPACITY	10
 
@@ -86,7 +89,8 @@ int					can_pull_from_left(t_tree *node);
 t_tree				*ins_ptr_in_node(t_tree *root, t_tree *node, void *ptr,
 					int (*f)(void *, void *));
 t_leaf				*rm_leaf(t_tree *node, int index);
-t_tree				*make_space(t_tree **root, t_tree *node, int force);
+t_tree				*make_space(t_tree **root, t_tree *node, int force,
+					int (*f)(void *, void *));
 t_tree				*condense(t_tree **root, t_tree *nodes);
 
 // HARD functions

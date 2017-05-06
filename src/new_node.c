@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 20:57:43 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/04 22:40:59 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:10:54 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	init_node(t_tree *node)
 t_tree		*new_node(int is_leaf, t_tree *parent)
 {
 	t_tree	*node;
-
 	node = (t_tree*)malloc(sizeof(t_tree));
 	if (!node)
 		return (NULL);

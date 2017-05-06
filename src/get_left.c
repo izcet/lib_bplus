@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 00:54:40 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 17:28:18 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:08:13 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_tree		*get_left(t_tree *node)
 {
 	int		i;
 	int		level;
-
 	if (!input_error(node))
 	{
 		level = 0;

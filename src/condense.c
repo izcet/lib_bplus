@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 17:51:29 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:46:39 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:06:44 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ static t_tree	*condense_child(t_tree **root, t_tree *node)
 {
 	t_tree *other;
 
+	other = NULL;
 	if (can_pull_from_right(node))
+	{
+		printf("CALLING PASS LEFT FROM CONDENSE CHILD IN CONDENSE.C\n");
 		pass_ptr_left(node, (other = get_right(node)));
+	}
 	else if (can_pull_from_left(node))
 		pass_ptr_right((other = get_left(node)), node);
 	else if (get_right(node))
@@ -41,7 +45,8 @@ static t_tree	*condense_child(t_tree **root, t_tree *node)
 	}
 	else
 		ft_error("Node with no neighbors has a parent?");
-	update_keys(other);
+	if (other)
+		update_keys(other);
 	update_keys(node);
 	return (condense(root, node->parent));
 }

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 13:42:42 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 20:03:50 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:44:16 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static t_tree	*capacity_leaf(t_tree **root, t_tree *node, void *ptr,
 	t_tree *right;
 
 	if (f(((t_leaf*)ptr)->key, ((t_leaf*)node->ptrs[NODE_CAPACITY - 1])->key) > 0)
-		right = make_space(root, node, 1);
+		right = make_space(root, node, 1, f);
 	else
-		right = make_space(root, node, 0);
+		right = make_space(root, node, 0, f);
 	if (right)
 	{
 		if (f(((t_leaf*)ptr)->key, ((t_leaf*)(right->ptrs[0]))->key) < 0)
@@ -38,9 +38,9 @@ static t_tree	*capacity_branch(t_tree **root, t_tree *node, void *ptr,
 	t_tree	*right;
 
 	if (f(get_lowest_key(ptr), get_lowest_key(node->ptrs[NODE_CAPACITY - 1])) > 0)
-		right = make_space(root, node, 1);
+		right = make_space(root, node, 1, f);
 	else
-		right = make_space(root, node, 0);
+		right = make_space(root, node, 0, f);
 	if (right)
 	{
 		if (f(get_lowest_key(ptr), get_lowest_key(right->ptrs[0])) < 0)
@@ -70,12 +70,12 @@ static void		sub_capacity_add(t_tree *node, void *ptr,
 	i = 0;
 	if (node->is_leaf)
 	{
-		while (f(((t_leaf*)ptr)->key, ((t_leaf*)(node->ptrs[i]))->key) >= 0)
+		while (i < node->num_ptrs && f(((t_leaf*)ptr)->key, ((t_leaf*)(node->ptrs[i]))->key) >= 0)
 			i++;
 	}
 	else
 	{
-		while (f(get_lowest_key(ptr), get_lowest_key(node->ptrs[i])) >= 0)
+		while (i < node->num_ptrs && f(get_lowest_key(ptr), get_lowest_key(node->ptrs[i])) >= 0)
 			i++;
 	}
 	ins_ptr_at(node, i, ptr);
@@ -90,7 +90,7 @@ t_tree			*ins_ptr_in_node(t_tree *root, t_tree *node, void *ptr,
 		ft_error("NULL passed to ins_ptr_in_node()");
 		return (root);
 	}
-	if (node->num_ptrs == NODE_CAPACITY)
+	if (node->num_ptrs >= NODE_CAPACITY)
 		if (capacity_add(&root, node, ptr, f))
 			return (root);
 	sub_capacity_add(node, ptr, f);

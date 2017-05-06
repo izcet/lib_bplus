@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 22:48:16 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 16:31:31 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 23:08:03 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int		input_error(t_tree *p, t_tree *c)
 int		get_index_of_child(t_tree *parent, t_tree *child)
 {
 	int		i;
-
 	if (!input_error(parent, child))
 	{
 		i = 0;
