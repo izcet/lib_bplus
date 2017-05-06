@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:24:22 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/04 15:47:26 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:29:05 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		print_datas(t_tree *node)
 	printf("Node has the datas:\n");
 	while (i < node->num_ptrs)
 	{
-		ft_putstr(((t_leaf_data*)(node->ptrs[i]))->data);
+		ft_putstr(((t_leaf*)(node->ptrs[i]))->data);
 		ft_putchar('\t');
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 19:25:50 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:31:09 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:25:01 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_leaf		*update_leaf(t_tree **root, void *k, t_leaf *leaf,
 {
 	t_leaf	*ret;
 
-	ret = remove(root, k, f);
+	ret = remove_leaf(root, k, f);
 	if (ret)
 	{
 		*root = add_leaf(*root, leaf, f);

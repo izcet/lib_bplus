@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/23 23:07:18 by irhett            #+#    #+#              #
-#    Updated: 2017/05/05 19:32:48 by irhett           ###   ########.fr        #
+#    Updated: 2017/05/05 20:22:08 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRC_FILE	=	add_leaf.c \
 				new_node.c \
 				pass_ptr_left.c \
 				pass_ptr_right.c \
-				remove.c \
+				remove_leaf.c \
 				rm_leaf.c \
 				shift_ptrs_left.c \
 				shift_ptrs_right.c \

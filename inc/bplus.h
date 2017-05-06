@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 23:39:51 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 19:58:05 by irhett           ###   ########.fr       */
+/*   Updated: 2017/05/05 20:21:17 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ t_tree				*add_leaf(t_tree *root, t_leaf *leaf,
 // revise to be get_leaves and return t_list not t_leaf
 t_leaf				*get_leaf(t_tree *root, void *k, int (*f)(void *, void *));
 // same for remove
-t_leaf				*remove(t_tree **root, void *k, int (*f)(void *, void *));
+t_leaf				*remove_leaf(t_tree **root, void *k, 
+					int (*f)(void *, void *));
 
 void				for_each_tree_node();
 t_leaf				*update_leaf(t_tree **root, void *k, t_leaf *leaf,
