@@ -1,19 +1,21 @@
 # LIB B-PLUS 
-A B-Plus Tree data structure library written in C.
-Incorporates some functions from `libft.a`, namely for List manipulations.
+### Overview
+A B-Plus Tree data structure library written in C
 
-<br><br>
-## Structures
 
-#### Macro NODE_CAPACITY
+
+### Structures
+
+
+##### Macro NODE_CAPACITY
 Defines the number of elements stored in each node.
 
-#### Structure t_leaf
+##### Structure t_leaf
 A reference to data.
 - **data**: Pointer to where the full object is stored.
 - **key**: Reference by which the leaves are sorted in the tree.
 
-#### Structure t_tree
+##### Structure t_tree
 A single node in the tree.
 - **is_leaf**: Boolean determining if the node is _leaf_ or _branch_. If _leaf_, then the **ptrs** will point to t_leaf
 structs. Otherwise they will point to other nodes.
@@ -22,7 +24,8 @@ structs. Otherwise they will point to other nodes.
 - **keys**: Pointer array of keys. (size: NODE_CAPACITY - 1)
 - **parent**: Pointer to the parent of this node. Will be NULL if _root_ node.
 
-<br><br>
+
+
 ### Functions
 
 
