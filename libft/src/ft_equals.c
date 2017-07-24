@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_equals.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/17 17:57:52 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/23 00:03:11 by irhett           ###   ########.fr       */
+/*   Created: 2017/05/25 20:31:33 by irhett            #+#    #+#             */
+/*   Updated: 2017/07/24 12:11:18 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+/*
+** because F t_strcmp()
+*/
+
+int		ft_equals(char *s1, char *s2)
 {
-	if (nb == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	else if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nb *= -1;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
-	else if (nb < 10)
-		ft_putchar_fd(nb + '0', fd);
+	if (ft_strcmp(s1, s2) == 0)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: irhett <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 22:02:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/18 22:19:24 by irhett           ###   ########.fr       */
+/*   Updated: 2017/07/24 12:10:05 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int					ft_atoi(char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, unsigned int base);
 unsigned int		ft_pow(unsigned int n, unsigned int exp);
+unsigned int		ft_numlen(int n, int base);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -124,6 +125,7 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 
 int					ft_error(char *str);
+int					ft_equals(char *s1, char *s2);
 
 int					ft_usage(char *name, char *args);
 
