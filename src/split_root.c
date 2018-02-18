@@ -36,6 +36,7 @@ t_tree		*split_root(t_tree **root)
 		ins_ptr_at(new, 0, left);
 		ins_ptr_at(new, 1, right);
 		*root = new;
+		printf("Calling update from splitroot\n");
 		update_keys(left);
 		update_keys(right);
 	}

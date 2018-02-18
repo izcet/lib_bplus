@@ -12,7 +12,7 @@
 
 NAME		=	test	
 
-CC			=	gcc
+CC			=	clang
 FLAGS		=	-Wall -Werror -Wextra -g
 
 SRC_DIR		=	src
@@ -23,7 +23,7 @@ OBJ_DIR		=	obj
 OBJ_FILE	=	$(SRC_FILE:.c=.o)
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
-LIBFT_DIR	=	../../libft
+LIBFT_DIR	=	../libft
 LIBFT_INC	=	$(LIBFT_DIR)/inc
 LIBFT		=	$(LIBFT_DIR)/libft.a
 
@@ -38,7 +38,7 @@ INC_DIR		=	-I inc -I $(LIBFT_INC) -I $(LIBTREE_INC)
 all: $(LIBFT) $(LIBTREE) $(NAME)
 
 $(NAME): $(SRCS) | $(OBJS)
-	$(CC) $(FLAGS) $(LIBFT) $(LIBTREE) $(OBJS) $(INC_DIR) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) $(INC_DIR) -o $(NAME) $(LIBTREE) $(LIBFT)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) -c $^ $(FLAGS) $(INC_DIR) -o $@

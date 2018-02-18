@@ -22,15 +22,13 @@ static int	input_error(t_tree *node)
 t_tree		*split_right(t_tree *left)
 {
 	t_tree	*right;
-	int		i;
 
 	if (input_error(left))
 		return (NULL);
 	right = new_node(left->is_leaf, left->parent);
 	if (!right)
 		return (NULL);
-	i = 0;
-	while (i++ < (left->num_ptrs / 2))
+	while (left->num_ptrs > right->num_ptrs)
 		pass_ptr_right(left, right);
 	update_keys(right);
 	return (right);

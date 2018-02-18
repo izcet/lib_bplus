@@ -12,7 +12,7 @@
 
 NAME		=	libbplus.a
 
-CC			=	gcc
+CC			=	clang
 FLAGS		=	-Wall -Werror -Wextra -c -g
 
 LIB			=	ar rc
@@ -62,7 +62,7 @@ OBJ_DIR		=	obj
 OBJ_FILE	=	$(SRC_FILE:.c=.o)
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
-LIBFT_DIR	=	../libft
+LIBFT_DIR	=	libft
 LIBFT_INC	=	$(LIBFT_DIR)/inc
 LIBFT		=	$(LIBFT_DIR)/libft.a
 
@@ -80,11 +80,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) -c $^ $(FLAGS) $(INC_DIR) -o $@
 
 clean:
-	cd $(LIBFT_DIR) && make clean
+	@cd $(LIBFT_DIR) && make clean
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	cd $(LIBFT_DIR) && make fclean
+	@cd $(LIBFT_DIR) && make fclean
 	rm -f $(NAME)
 
 re: fclean all
@@ -93,4 +93,4 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)

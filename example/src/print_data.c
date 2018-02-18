@@ -20,11 +20,14 @@ static void		print_datas(t_tree *node)
 	printf("Node has the datas:\n");
 	while (i < node->num_ptrs)
 	{
+		ft_putchar('[');
 		ft_putstr(((t_leaf*)(node->ptrs[i]))->data);
+		ft_putchar(']');
 		ft_putchar('\t');
+		//printf("[%s]\t", ((t_leaf*)(node->ptrs[i]))->data);
 		i++;
 	}
-	ft_putchar('\n');
+	printf("\n");
 }
 
 static void		print_keys(t_tree *node)
@@ -35,11 +38,14 @@ static void		print_keys(t_tree *node)
 	printf("Node has the keys:\n");
 	while (i < node->num_ptrs - 1)
 	{
+		ft_putchar('[');
 		ft_putstr(node->keys[i]);
+		ft_putchar(']');
 		ft_putchar('\t');
+		//printf("[%s]\t", node->keys[i]);
 		i++;
 	}
-	ft_putchar('\n');
+	printf("\n");
 }
 
 void			*print_data(t_tree *node)

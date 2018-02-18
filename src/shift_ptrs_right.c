@@ -15,9 +15,9 @@
 static int	input_error(t_tree *node, int index)
 {
 	if (!node)
-		return (ft_error("NULL passed to shift_ptrs_left()"));
+		return (ft_error("NULL passed to shift_ptrs_right()"));
 	if ((index < 0) || (index > node->num_ptrs) || (index >= NODE_CAPACITY))
-		return (ft_error("Invalid index passed to shift_ptrs_left()"));
+		return (ft_error("Invalid index passed to shift_ptrs_right()"));
 	return (0);
 }
 

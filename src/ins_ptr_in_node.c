@@ -56,6 +56,7 @@ static t_tree	*capacity_branch(t_tree **root, t_tree *node, void *ptr,
 static t_tree	*capacity_add(t_tree **root, t_tree *node, void *ptr,
 		int (*f)(void *, void *))
 {
+	printf("CAPACITY ADD\n");
 	if (node->is_leaf)
 		return (capacity_leaf(root, node, ((t_leaf*)ptr)->key, f));
 	else
@@ -66,18 +67,23 @@ static void		sub_capacity_add(t_tree *node, void *ptr,
 		int (*f)(void *, void *))
 {
 	int		i;
+	printf("SUB CAPACITY ADD\n");
+	// TODO problem starts somewhere in here
 
 	i = 0;
 	if (node->is_leaf)
 	{
+		printf("Node is leaf\n");
 		while (i < node->num_ptrs && f(((t_leaf*)ptr)->key, ((t_leaf*)(node->ptrs[i]))->key) >= 0)
 			i++;
 	}
 	else
 	{
+		printf("node is not leaf\n");
 		while (i < node->num_ptrs && f(get_lowest_key(ptr), get_lowest_key(node->ptrs[i])) >= 0)
 			i++;
 	}
+	printf("%s\n", ((t_leaf*)(ptr))->key);
 	ins_ptr_at(node, i, ptr);
 }
 
@@ -93,6 +99,7 @@ t_tree			*ins_ptr_in_node(t_tree *root, t_tree *node, void *ptr,
 	if (node->num_ptrs >= NODE_CAPACITY)
 		if (capacity_add(&root, node, ptr, f))
 			return (root);
+	printf("ins_ptr_in_node calling sub_capacity (%p , %p , %p) (%p, %p)\n", root, node, ptr, node, ptr);
 	sub_capacity_add(node, ptr, f);
 	update_keys(node);
 	return (root);

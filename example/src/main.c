@@ -26,12 +26,13 @@ t_tree	*single_entry(t_tree *root, void *data, void *key)
 {
 	t_leaf		*d;
 
-	data = gnl_concat(data, "", 0, 0);
-	key = gnl_concat(key, "", 0, 0);
-	//printf("Adding (%s, %s)\n", data, key);
+	data = ft_strdup(data);
+	key = ft_strdup(key);
+	printf("ADDING NEW NODE (%s %s) |||||||||||||||||||||||||||||||||||||||||||||\n", data, key);
 	d = new_leaf(data,key);
 	root = add_leaf(root, d, comparator);
-	//printf("Return value for (%s, %s) is %i\n", data, key, ret);
+	printf("Return value for (%s, %s) is %p\n", data, key, root);
+	print_data(root);
 	return (root);
 }
 
@@ -48,7 +49,7 @@ t_tree	*make_db(t_tree *root)
 	root = single_entry(root, "bb", "bb");	
 	root = single_entry(root, "cc", "cc");	
 	root = single_entry(root, "xx", "xx");	
-	root = single_entry(root, "tt", "tt");	
+/*	root = single_entry(root, "tt", "tt");	
 	root = single_entry(root, "nn", "nn");	
 	root = single_entry(root, "ab", "ab");	
 	root = single_entry(root, "aa", "aa");	
@@ -124,8 +125,8 @@ t_tree	*make_db(t_tree *root)
 	root = single_entry(root, "xx", "xx");	
 	root = single_entry(root, "tt", "tt");	
 	root = single_entry(root, "nn", "nn");	
-	root = single_entry(root, "ab", "ab");	
-	return (root);
+	root = single_entry(root, "ab", "ab");	*/
+return (root);
 }
 
 int		main(int argc, char **argv)
