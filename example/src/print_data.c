@@ -20,11 +20,7 @@ static void		print_datas(t_tree *node)
 	printf("Node has the datas:\n");
 	while (i < node->num_ptrs)
 	{
-		ft_putchar('[');
-		ft_putstr(((t_leaf*)(node->ptrs[i]))->data);
-		ft_putchar(']');
-		ft_putchar('\t');
-		//printf("[%s]\t", ((t_leaf*)(node->ptrs[i]))->data);
+		printf("[%s](%p)\t", ((t_leaf*)node->ptrs[i])->data, node->ptrs[i]);
 		i++;
 	}
 	printf("\n");
@@ -38,11 +34,7 @@ static void		print_keys(t_tree *node)
 	printf("Node has the keys:\n");
 	while (i < node->num_ptrs - 1)
 	{
-		ft_putchar('[');
-		ft_putstr(node->keys[i]);
-		ft_putchar(']');
-		ft_putchar('\t');
-		//printf("[%s]\t", node->keys[i]);
+		printf("[%s]\t", node->keys[i]);
 		i++;
 	}
 	printf("\n");
@@ -50,15 +42,14 @@ static void		print_keys(t_tree *node)
 
 void			*print_data(t_tree *node)
 {
-	ft_putendl("");
 	if (!node)
 		ft_error("NULL passed to print_data()");
 	else
 	{
-		printf("Starting print_data()\n");
-		printf("Node has %i datas.\n", node->num_ptrs);
+		printf("{\n");
+		printf("Node %p has %i datas.\n", node, node->num_ptrs);
 		if (node->parent != NULL)
-			printf("Node has a parent\n");
+			printf("Node has a parent %p\n", node->parent);
 		else
 			printf("Node has no parent, root?\n");
 		if (node->is_leaf)
@@ -73,5 +64,6 @@ void			*print_data(t_tree *node)
 			print_keys(node);
 		}
 	}
+	printf("}\n");
 	return (node);
 }

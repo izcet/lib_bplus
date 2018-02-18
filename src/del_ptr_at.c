@@ -24,8 +24,6 @@ static int	input_error(t_tree *n, int i)
 void		*del_ptr_at(t_tree *node, int index)
 {
 	void	*ptr;
-	printf("del_ptr_at called\n");
-	printf("index is %i\n", index);
 	ptr = NULL;
 	if (!input_error(node, index))
 	{

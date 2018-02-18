@@ -17,4 +17,5 @@ void	pass_ptr_left(t_tree *left, t_tree *right)
 	if (!left || !right)
 		ft_error("NULL passed to pass_ptr_left()");
 	ins_ptr_at(left, left->num_ptrs, del_ptr_at(right, 0));
+	update_keys(left); // not needed?
 }

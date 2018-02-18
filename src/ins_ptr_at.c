@@ -26,8 +26,6 @@ static int	input_error(void *n, int i, void *p)
 
 void		ins_ptr_at(t_tree *node, int index, void *ptr)
 {
-	printf("ins_ptr_at(%p , %p) [%s]\n", node, ptr, ((t_leaf*)ptr)->key);
-	printf("INDEX is %i NUM_PTRS is %i\n", index, node->num_ptrs);
 	if (!input_error(node, index, ptr))
 	{
 		if (index > node->num_ptrs)

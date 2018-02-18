@@ -31,7 +31,7 @@ void	for_each_tree_node(t_tree **node, void *(*function)(void *))
 		{
 			while (i < (*node)->num_ptrs)
 			{
-				printf("calling function on child %i\n", i);
+				printf("(%p) calling f on child %i(%p)\n", *node, i, (*node)->ptrs[i]);
 				for_each_tree_node((t_tree **)&((*node)->ptrs[i++]), function);
 			}
 		}

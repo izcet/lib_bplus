@@ -18,7 +18,7 @@
 # include "libft.h"
 # include <stdio.h> //
 
-# define NODE_CAPACITY	10
+# define NODE_CAPACITY	4
 
 typedef struct		s_leaf
 {

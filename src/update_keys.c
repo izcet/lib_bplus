@@ -21,7 +21,6 @@ static int	input_error(t_tree *node)
 
 void		update_keys(t_tree *node)
 {
-	printf("update keys %p\n", node);
 	int		i;
 	if (!input_error(node))
 	{
@@ -34,10 +33,8 @@ void		update_keys(t_tree *node)
 				node->keys[i - 1] = get_lowest_key(node->ptrs[i]);
 			i++;
 		}
-		printf("%i %i\n", i, NODE_CAPACITY);
 		while (i < NODE_CAPACITY - 1)
 			node->keys[(++i) - 1] = NULL;
-		printf("%i %i\n", i, NODE_CAPACITY);
 		if (node->parent)
 			update_keys(node->parent);
 	}
