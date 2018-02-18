@@ -15,7 +15,9 @@
 #ifndef BPLUS_H
 # define BPLUS_H
 
-# include "libft.h"
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
 # include <stdio.h> //
 
 # define NODE_CAPACITY	10
@@ -115,6 +117,10 @@ t_tree				*get_left(t_tree *node);
 t_tree				*get_right(t_tree *node);
 t_tree				*get_leftmost_child(t_tree *node, int level);
 t_tree				*get_rightmost_child(t_tree *node, int level);
+
+// error.c
+void				ft_putstr_fd(const char *s, int fd);
+int					ft_error(char *str);
 
 // ADD get_all
 // ADD print_all

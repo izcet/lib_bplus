@@ -27,6 +27,7 @@ SRC_FILE	=	add_leaf.c \
 				del_leaf.c \
 				del_node.c \
 				del_ptr_at.c \
+				error.c \
 				for_each_tree_node.c \
 				get_first_of_key.c \
 				get_index.c \
@@ -48,6 +49,7 @@ SRC_FILE	=	add_leaf.c \
 				new_node.c \
 				pass_ptr_left.c \
 				pass_ptr_right.c \
+				remove.c \
 				remove_leaf.c \
 				rm_leaf.c \
 				shift_ptrs_left.c \
@@ -62,15 +64,11 @@ OBJ_DIR		=	obj
 OBJ_FILE	=	$(SRC_FILE:.c=.o)
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
-LIBFT_DIR	=	../libft
-LIBFT_INC	=	$(LIBFT_DIR)/inc
-LIBFT		=	$(LIBFT_DIR)/libft.a
-
-INC_DIR		=	-I inc -I $(LIBFT_INC)
+INC_DIR		=	-I inc
 
 .PHONY: all clean fclean re
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
 $(NAME): $(SRCS) | $(OBJS)
 	$(LIB) $@ $(OBJS)
@@ -80,17 +78,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) -c $^ $(FLAGS) $(INC_DIR) -o $@
 
 clean:
-	cd $(LIBFT_DIR) && make clean
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	cd $(LIBFT_DIR) && make fclean
 	rm -f $(NAME)
 
 re: fclean all
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
-
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
