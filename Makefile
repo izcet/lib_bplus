@@ -20,42 +20,33 @@ RLIB		=	ranlib
 
 SRC_DIR		=	src
 SRC_FILE	=	add_leaf.c \
-				can_pull_from_left.c \
-				can_pull_from_right.c \
+				can_pull.c \
 				can_share.c \
 				condense.c \
-				del_leaf.c \
-				del_node.c \
 				del_ptr_at.c \
 				for_each_tree_node.c \
+				get_edge_child.c \
 				get_first_of_key.c \
 				get_index.c \
-				get_index_of_child.c \
 				get_leaf.c \
-				get_left.c \
-				get_leftmost_child.c \
 				get_lowest_key.c \
-				get_right.c \
-				get_rightmost_child.c \
+				get_neighbor.c \
 				ins_ptr_at.c \
 				ins_ptr_in_node.c \
 				is_full.c \
 				make_space.c \
-				merge_left.c \
-				merge_right.c \
+				merge.c \
 				new_empty_tree.c \
-				new_leaf.c \
-				new_node.c \
-				pass_ptr_left.c \
-				pass_ptr_right.c \
+				pass_ptr.c \
+				remove.c \
 				remove_leaf.c \
 				rm_leaf.c \
 				shift_ptrs_left.c \
 				shift_ptrs_right.c \
-				split_right.c \
-				split_root.c \
-				update_keys.c \
-				update_leaf.c 
+				split.c \
+				t_leaf.c \
+				t_node.c \
+				update.c
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
 OBJ_DIR		=	obj

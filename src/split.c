@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_right.c                                      :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "bplus.h"
 
-static int	input_error(t_tree *node)
+static int	input_error_node(t_tree *node)
 {
 	if (!node)
 		return (ft_error("NULL passed to split_right()"));
@@ -23,7 +23,7 @@ t_tree		*split_right(t_tree *left)
 {
 	t_tree	*right;
 
-	if (input_error(left))
+	if (input_error_node(left))
 		return (NULL);
 	right = new_node(left->is_leaf, left->parent);
 	if (!right)
@@ -32,4 +32,35 @@ t_tree		*split_right(t_tree *left)
 		pass_ptr_right(left, right);
 	update_keys(right);
 	return (right);
+}
+
+static int	input_error_root(t_tree **root)
+{
+	if (!root || !(*root))
+		return (ft_error("NULL passed to split_root()"));
+	if ((*root)->parent)
+		return (ft_error("\"Root\" node has a parent in split_root()"));
+	return (0);
+}
+
+t_tree		*split_root(t_tree **root)
+{
+	t_tree	*left;
+	t_tree	*right;
+	t_tree	*new;
+
+	if (!input_error_root(root))
+	{
+		new = new_node(0, NULL);
+		left = *root;
+		left->parent = new;
+		right = split_right(left);
+		ins_ptr_at(new, 0, left);
+		ins_ptr_at(new, 1, right);
+		*root = new;
+		printf("Calling update from splitroot\n");
+		update_keys(left);
+		update_keys(right);
+	}
+	return (*root);
 }

@@ -119,6 +119,9 @@ t_leaf				*rm_leaf(t_tree *node, int index);
 // shift_ptrs.c
 
 // split.c
+t_tree				*split_right(t_tree *left);
+t_tree				*split_root(t_tree **root);
+
 
 
 
@@ -133,13 +136,13 @@ t_tree				*new_node(int is_leaf, t_tree *parent);
 void				del_node(t_tree *node);
 
 // update.c
+t_leaf				*update_leaf(t_tree **r, void *k, t_leaf *l, int (*f)(void *, void *));
+void				update_keys(t_tree *node);
+
 
 
 // revise to be get_leaves and return t_list not t_leaf
 // same for remove
-t_leaf				*update_leaf(t_tree **root, void *k, t_leaf *leaf,
-					int (*f)(void *, void *));
-
 /*
 ** Helper Functions, generally not called directly.
 */
@@ -153,12 +156,8 @@ int					get_node_index(t_tree *node);
 
 void				shift_ptrs_left(t_tree *node, int index);
 void				shift_ptrs_right(t_tree *node, int index);
-t_tree				*split_right(t_tree *left);
-
-void				update_keys(t_tree *node);
 void				*get_lowest_key(t_tree *node);
 int					get_index_of_child(t_tree *parent, t_tree *child);
-t_tree				*split_root(t_tree **root);
 // ADD get_all
 // ADD print_all
 // ADD destroy_graph
