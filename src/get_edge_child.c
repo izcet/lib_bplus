@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_leftmost_child.c                               :+:      :+:    :+:   */
+/*   get_edge_child.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,9 +15,9 @@
 static int	input_error(t_tree *n, int level)
 {
 	if (!n)
-		return (ft_error("NULL passed to get_leftmost_child()"));
+		return (ft_error("NULL passed to get_(left|right)most_child()"));
 	if (level < 0)
-		return (ft_error("Invalid level passed to get_leftmost_child()"));
+		return (ft_error("Invalid level passed to get_(left|right)most_child()"));
 	return (0);
 }
 
@@ -30,6 +30,23 @@ t_tree		*get_leftmost_child(t_tree *node, int level)
 			if (!node)
 				return (NULL);
 			node = node->ptrs[0];
+			level--;
+		}
+		if (node)
+			return (node);
+	}
+	return (NULL);
+}
+
+t_tree		*get_rightmost_child(t_tree *node, int level)
+{
+	if (!input_error(node, level))
+	{
+		while (level > 0)
+		{
+			if (!node)
+				return (NULL);
+			node = node->ptrs[node->num_ptrs - 1];
 			level--;
 		}
 		if (node)

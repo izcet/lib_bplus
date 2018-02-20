@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   can_pull_from_right.c                              :+:      :+:    :+:   */
+/*   t_leaf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/05 01:36:00 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/05 23:05:52 by irhett           ###   ########.fr       */
+/*   Created: 2017/05/04 21:03:51 by irhett            #+#    #+#             */
+/*   Updated: 2017/05/05 23:10:45 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bplus.h"
 
-static int	input_error(t_tree *node)
+t_leaf	*new_leaf(void *data, void *key)
 {
-	if (!node)
-		return (ft_error("NULL passed to can_pull_from_right()"));
-	return (0);
+	t_leaf	*leaf;
+	leaf = (t_leaf *)malloc(sizeof(t_leaf));
+	if (!leaf)
+		return (NULL);
+	leaf->data = data;
+	leaf->key = key;
+	return (leaf);
 }
 
-int			can_pull_from_right(t_tree *node)
+void	del_leaf(t_leaf *leaf)
 {
-	if (!input_error(node))
-		if (get_right(node))
-			return (can_share(get_right(node)));
-	return (0);
+	if (leaf)
+	{
+		free(leaf);
+		leaf = NULL;
+	}
+	else
+		ft_error("NULL passed to del_leaf()");
 }
